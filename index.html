@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- vue -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>普台書局訂購單</title>
+</head>
+<body>
+  <!-- box -->
+  <div id="box">
+    <!-- header -->
+    <header>
+      <h1 class="header-title">普台書局複習講義訂購單</h1>
+    </header>
+    <hr>
+
+    <!-- //main -->
+<main>
+  <form action="" id="form">
+    <fieldset>
+      <legend id="legend">個人資訊</legend>
+      <div id="acc-box">
+
+      <div class="account">
+        <label  class="acc-label" for="name">姓名 ：</label>
+        <input type="text" class="acc-input" placeholder="請輸入姓名" name="name"  v-model="custom_name">
+      </div>
+      <div class="account">
+        <label  class="acc-label" for="phone">電話 ：</label>
+        <input type="text" class="acc-input" placeholder="請輸入電話" name="phone"  v-model="custom_phone">
+      </div>
+      <div class="account">
+        <label  class="acc-label" for="email">信箱 ：</label>
+        <input type="text" class="acc-input" placeholder="請輸入信箱"  v-model="custom_email">
+      </div>
+    </div>
+    </fieldset>
+
+  <div id="fliter">
+      <h1>篩選器</h1>
+    <div class="fliterbox">
+      <div class="a">科目</div>
+      <div class="b">
+        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="國文">國文</div>
+        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="英文">英文</div>
+        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="數學">數學</div>
+        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="自然">自然</div>
+        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="社會">社會</div>
+      </div>
+
+    </div>
+    <div class="fliterbox">
+      <div class="a">出版社</div>
+      <div class="b">
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">康軒</div>
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">南一</div>
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">翰林</div>
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">金安</div>
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">奇鼎</div>
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">高昇</div>
+        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">漢華</div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="item">
+    <div class="books preview-summer">
+      <h2>國一複習講義</h2>
+      <table>
+        <th>
+          <tr>
+            <td class="th"></td>
+            <td class="th">品項</td>
+            <td class="th">售價</td>
+            <td class="th booknum">數量</td>
+          </tr>
+        </th>
+        <tr v-for="book in preview_book">
+          <!-- <template> -->
+            <td class="imgbox">
+              <!-- <img class="bookimg" :src="'IMG/' + book.image" alt=""> -->
+            </td>
+            <td class="booksname">{{book.bookname}}</td>
+            <td class="bookprice">{{sellprice(book.price)}}</td>
+            <td class="booknum"><input type="number" min="0" placeholder=""></td>
+          <!-- </template> -->
+        </tr>
+      </table>
+        <!-- <img :src="'IMG/' + preview_book[0].image" alt=""> -->
+    </div>
+    <div class="books review">
+      <h2>國二複習講義</h2>
+      <table>
+        <th>
+          <tr>
+            <td class="th"></td>
+            <td class="th">品項</td>
+            <td class="th">售價</td>
+            <td class="th booknum">數量</td>
+          </tr>
+        </th>
+        <tr v-for="book in review_book">
+          <!-- <template> -->
+            <td class="imgbox">
+              <!-- <img class="bookimg" :src="'IMG/' + book.image" alt=""> -->
+            </td>
+            <td class="booksname">{{book.bookname}}</td>
+            <td class="bookprice">{{sellprice(book.price)}}</td>
+            <td class="booknum"><input type="num" min="0" placeholder=""></td>
+          <!-- </template> -->
+        </tr>
+      </table>
+
+      <div class="submitbox"><button class="submit">提交</button></div>
+    </div>
+  </div>
+
+
+  </div>
+  </form>
+
+</main>
+
+  </div>
+<link rel="stylesheet" type="text/css" href="style.min.css">
+<script src="item.js" type="text/javascript" charset="utf-8"></script>
+<script src="vue.js" charset="utf-8"></script>
+</body>
+</html>
