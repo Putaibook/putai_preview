@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- vue -->
-  <script src="https://unpkg.com/vue@next"></script>
   <title>普台書局訂購單</title>
 </head>
+
+<!-- vue -->
+<script src="https://unpkg.com/vue@next"></script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- jquery-ui -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 <body>
   <!-- box -->
   <div id="box">
@@ -17,7 +21,7 @@
       <h1 class="header-title">普台書局複習講義訂購單</h1>
     </header>
     <hr>
-
+  <div class="gotop"><a href="#legend">Top</a></div>
     <!-- //main -->
 <main>
   <form action="" id="form">
@@ -27,55 +31,44 @@
 
       <div class="account">
         <label  class="acc-label" for="name">姓名 ：</label>
-        <input type="text" class="acc-input" placeholder="請輸入姓名" name="name"  v-model="custom_name">
+        <input type="text" class="acc-input focus" placeholder="請輸入姓名" name="name"  v-model="custom_name" required>*
       </div>
       <div class="account">
         <label  class="acc-label" for="phone">電話 ：</label>
-        <input type="text" class="acc-input" placeholder="請輸入電話" name="phone"  v-model="custom_phone">
+        <input type="phone" class="acc-input" placeholder="請輸入電話" name="phone"  v-model="custom_phone" maxlength="10" required>*
       </div>
       <div class="account">
         <label  class="acc-label" for="email">信箱 ：</label>
-        <input type="text" class="acc-input" placeholder="請輸入信箱"  v-model="custom_email">
+        <input type="email" class="acc-input" placeholder="請輸入信箱"  v-model="custom_email" required>*
       </div>
     </div>
     </fieldset>
 
+
   <div id="fliter">
-      <h1>篩選器</h1>
     <div class="fliterbox">
-      <div class="a">科目</div>
-      <div class="b">
-        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="國文">國文</div>
-        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="英文">英文</div>
-        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="數學">數學</div>
-        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="自然">自然</div>
-        <div class="fliter_input"><input type="radio" name="fliter_subject" :value="社會">社會</div>
+        <!-- <div class="fliter_input"><input type="radio" name="fliter_subject" :value="國文">國文</div> -->
+        <!-- <div class="fliter_input"><input type="radio" name="fliter_subject" :value="英文">英文</div> -->
+        <!-- <div class="fliter_input"><input type="radio" name="fliter_subject" :value="數學">數學</div> -->
+        <!-- <div class="fliter_input"><input type="radio" name="fliter_subject" :value="自然">自然</div> -->
+        <!-- <div class="fliter_input"><input type="radio" name="fliter_subject" :value="社會">社會</div> -->
+        <div><label for="subject"><input type="radio" name="subject" v-model="fliter_subject" value="國文"/>國文</label></div>
+        <div><label for="subject"><input type="radio" name="subject" v-model="fliter_subject" value="英文"/>英文</label></div>
+        <div><label for="subject"><input type="radio" name="subject" v-model="fliter_subject" value="數學"/>數學</label></div>
+        <div><label for="subject"><input type="radio" name="subject" v-model="fliter_subject" value="自然"/>自然</label></div>
+        <div><label for="subject"><input type="radio" name="subject" v-model="fliter_subject" value="社會"/>社會</label></div>
       </div>
+      <div class="flibtn"><button  @click="fliter_subject == ''">重置</button></div>
 
-    </div>
-    <div class="fliterbox">
-      <div class="a">出版社</div>
-      <div class="b">
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">康軒</div>
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">南一</div>
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">翰林</div>
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">金安</div>
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">奇鼎</div>
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">高昇</div>
-        <div class="fliter_input"><input type="radio" name="fliter_publisher" :value="社會">漢華</div>
-      </div>
-
-    </div>
   </div>
-
 
   <div id="item">
     <div class="books preview-summer">
-      <h2>國一複習講義</h2>
+      <h2>國一複習講義{{fliter_subject}}</h2>
       <table>
         <th>
           <tr>
-            <td class="th"></td>
+            <!-- <td class="th"></td> -->
             <td class="th">品項</td>
             <td class="th">售價</td>
             <td class="th booknum">數量</td>
@@ -83,12 +76,14 @@
         </th>
         <tr v-for="book in preview_book">
           <!-- <template> -->
-            <td class="imgbox">
+            <!-- <td class="imgbox"> -->
               <!-- <img class="bookimg" :src="'IMG/' + book.image" alt=""> -->
-            </td>
-            <td class="booksname">{{book.bookname}}</td>
-            <td class="bookprice">{{sellprice(book.price)}}</td>
-            <td class="booknum"><input type="number" min="0" placeholder=""></td>
+            <!-- </td> -->
+            <template v-if="subject(book)">
+              <td class="booksname">{{book.bookname}}</td>
+              <td class="bookprice">{{sellprice(book.price)}}</td>
+              <td class="booknum"><input type="number" min="0" placeholder="" v-model="book.num" @change="selectbook()"></td>
+            </template>
           <!-- </template> -->
         </tr>
       </table>
@@ -99,33 +94,52 @@
       <table>
         <th>
           <tr>
-            <td class="th"></td>
-            <td class="th">品項</td>
-            <td class="th">售價</td>
-            <td class="th booknum">數量</td>
+            <!-- <td class="th"></td> -->
+              <td class="th">品項</td>
+              <td class="th">售價</td>
+              <td class="th booknum">數量</td>
           </tr>
         </th>
         <tr v-for="book in review_book">
-          <!-- <template> -->
-            <td class="imgbox">
+            <!-- <td class="imgbox">
               <!-- <img class="bookimg" :src="'IMG/' + book.image" alt=""> -->
-            </td>
+            <!-- </td> -->
+            <template v-if="subject(book)">
             <td class="booksname">{{book.bookname}}</td>
             <td class="bookprice">{{sellprice(book.price)}}</td>
-            <td class="booknum"><input type="num" min="0" placeholder=""></td>
-          <!-- </template> -->
+            <td class="booknum"><input type="num" min="0" placeholder="" v-model="book.num" @change="selectbook()"></td>
+          </template>
         </tr>
       </table>
 
-      <div class="submitbox"><button class="submit">提交</button></div>
     </div>
-  </div>
+    <div class="cart-title">
+      <h2>以下是您的訂購資訊 :</h2>
+    </div>
+   <div class="cart" id="cart">
+           <div class="custom_infos custom-name">姓名  :  <div class="inputed">{{custom_name}}</div></div>
+           <div class="custom_infos custom-phone">電話 :  <div class="inputed">{{custom_phone}}</div></div>
+           <div class="custom_infos custom-mail">信箱  :  <div class="inputed">{{custom_email}}</div></div>
+           <div id="purchase_list">
+             <div class="uldiv">
+               訂購項目 :
+               <ul v-for="books in selectedbook">
+                 <li class="selected">{{books}}</li>
+               </ul>
+             </div>
+            <div>總共{{total}} 元</div>
+           </div></div>
+
+
+  <div class="submitbox"><button class="submit" @click.prevent="submitdata()">提交</button></div>
 
 
   </div>
   </form>
-
 </main>
+  <div>
+
+  </div>
 
   </div>
 <link rel="stylesheet" type="text/css" href="style.min.css">

@@ -1107,7 +1107,7 @@ const books = {
       bookname : "漢華大聯盟公民1-6冊複習講義",
       publisher : "漢華",
       subject: "社會",
-      image: "大聯盟公民(全).jpg",
+      // image: "大聯盟公民(全).jpg",
       num: "",
       price: 380
     }

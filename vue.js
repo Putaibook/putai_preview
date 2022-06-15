@@ -6,15 +6,87 @@ const app = {
       custom_phone : "",
       preview_book :  books.preview_book,
       review_book : books.review_book,
+      fliter_subject: "",
+      selectedbook: [],
     }
   },
   methods:{
     sellprice(a){
-      return Math.floor(a * 0.70);
-    }
-  },
-  computed:{
+      return Math.floor(a * 0.7);
+    },
+    subject(res){
+      const subject = this.fliter_subject;
+      return subject == "" ? true:res.subject == subject;
+    },
+    selectbook(){
+      this.selectedbook = [];
+      const books = this.preview_book.concat(this.review_book);
 
+      books.filter(res=> res.num > 0)
+      .forEach(book=>this.selectedbook.push(`${book.bookname} * ${book.num}本  ${Math.floor(book.price*0.7*book.num)}元`));
+    },
+
+      submitdata(){
+let url ="https://script.google.com/macros/s/AKfycbwPApwlqN6pssQEuAu3CMOt98qMPxecxgEwMYaA9VtLPmfIZfJrOlvzER-tgn-Uq8E7IQ/exec";
+let data = {
+  name : this.custom_name,
+  phone : this.custom_phone,
+  email : this.custom_email,
+  select: this.selectedbook.join("\n"),
+  total: this.total
+}
+// check data vailded
+if(data.name==""||data.phone==""||data.email==""){
+  alert("請填寫個人資訊");
+  window.scrollTo(0,0);
+  $(".focus").focus();
+  return false;
+}else if(data.total === 0){
+  alert("未選擇品項 不予統計");
+  return false
+}
+
+
+
+
+
+
+
+
+        console.log(data);
+        $.ajax({
+              type: "get",
+              url: url,
+              data:  data,
+              // 資料格式是JSON
+              dataType: "JSON",
+              // 成功送出 會回頭觸發下面這塊感謝
+              success: function(responseText) {
+                  console.log('responseURL:')},
+
+              error: function (err) {
+                if(err.status == 200||302){
+                  alert("表單已成功寄出");
+                }
+                console.log(err.status,12346);
+              }
+            })
+      }
+    },
+
+  computed:{
+    total(){
+      if(this.selectedbook == []){
+        return 0
+      }else{
+        let books = this.review_book.concat(this.preview_book).filter(book=>book.num>0);
+        let total = 0;
+        for(let i=0;i<books.length;i++){
+          total += Math.floor(books[i].price * 0.7 * books[i].num);
+        }
+        return total;
+      }
+    }
   }
 }
 
