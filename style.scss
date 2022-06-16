@@ -36,7 +36,12 @@ html{
   background-image: linear-gradient(45deg, #e6ffab 50%, #96e6a1 100%);
   background-repeat: no-repeat;
 }
-
+.totals{
+  text-align: right;
+  span{
+    color: red;
+  }
+}
 header{
   height: 80px;
   // width: 80%;

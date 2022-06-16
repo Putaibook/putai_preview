@@ -27,13 +27,15 @@ const app = {
     },
 
       submitdata(){
-let url ="https://script.google.com/macros/s/AKfycbwPApwlqN6pssQEuAu3CMOt98qMPxecxgEwMYaA9VtLPmfIZfJrOlvzER-tgn-Uq8E7IQ/exec";
+let url ="https://script.google.com/macros/s/AKfycby_7z7Fukb968D0hw5nrHwtp6-2ZcgM1a7SejHZdOf5/dev";
 let data = {
   name : this.custom_name,
   phone : this.custom_phone,
   email : this.custom_email,
   select: this.selectedbook.join("\n"),
-  total: this.total
+  total: this.total,
+  list: JSON.stringify(this.selectedbook),
+  lengths: this.selectedbook.length
 }
 // check data vailded
 if(data.name==""||data.phone==""||data.email==""){
@@ -59,7 +61,7 @@ if(data.name==""||data.phone==""||data.email==""){
               url: url,
               data:  data,
               // 資料格式是JSON
-              dataType: "JSON",
+              dataType: "text",
               // 成功送出 會回頭觸發下面這塊感謝
               success: function(responseText) {
                   console.log('responseURL:')},
@@ -67,6 +69,10 @@ if(data.name==""||data.phone==""||data.email==""){
               error: function (err) {
                 if(err.status == 200||302){
                   alert("表單已成功寄出");
+                  // window.location.reload()
+                  setTimeout(function(){
+                    document.write("訂單已完成,感謝您的訂購");
+                  },3000)
                 }
                 console.log(err.status,12346);
               }

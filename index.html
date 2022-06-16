@@ -39,7 +39,7 @@
       </div>
       <div class="account">
         <label  class="acc-label" for="email">信箱 ：</label>
-        <input type="email" class="acc-input" placeholder="請輸入信箱"  v-model="custom_email" required>*
+        <input type="text" class="acc-input" placeholder="請輸入信箱"  v-model="custom_email" required>*
       </div>
     </div>
     </fieldset>
@@ -127,7 +127,7 @@
                  <li class="selected">{{books}}</li>
                </ul>
              </div>
-            <div>總共{{total}} 元</div>
+            <div class="totals">總計<span>{{total}}</span> 元</div>
            </div></div>
 
 
