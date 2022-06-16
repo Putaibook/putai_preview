@@ -27,7 +27,7 @@ const app = {
     },
 
       submitdata(){
-let url ="https://script.google.com/macros/s/AKfycby_7z7Fukb968D0hw5nrHwtp6-2ZcgM1a7SejHZdOf5/dev";
+let url ="https://script.google.com/macros/s/AKfycbz_-GTPg7ljMH_59Or_OSldc9MW1vg8K3Pdg2IQ3X8lz31KUmlrPv4rRco7953rK4aF-w/exec";
 let data = {
   name : this.custom_name,
   phone : this.custom_phone,
