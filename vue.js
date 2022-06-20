@@ -12,7 +12,7 @@ const app = {
   },
   methods:{
     sellprice(a){
-      return Math.floor(a * 0.7);
+      return Math.round(a * 0.7);
     },
     subject(res){
       const subject = this.fliter_subject;
@@ -23,7 +23,7 @@ const app = {
       const books = this.preview_book.concat(this.review_book);
 
       books.filter(res=> res.num > 0)
-      .forEach(book=>this.selectedbook.push(`${book.bookname} * ${book.num}本  ${Math.floor(book.price*0.7*book.num)}元`));
+      .forEach(book=>this.selectedbook.push(`${book.bookname} * ${book.num}本  ${Math.round(book.price*0.7*book.num)}元`));
     },
 
       submitdata(){
