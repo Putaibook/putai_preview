@@ -88,7 +88,7 @@ if(data.name==""||data.phone==""||data.email==""){
         let books = this.review_book.concat(this.preview_book).filter(book=>book.num>0);
         let total = 0;
         for(let i=0;i<books.length;i++){
-          total += Math.floor(books[i].price * 0.7 * books[i].num);
+          total += Math.round(books[i].price * 0.7 * books[i].num);
         }
         return total;
       }
