@@ -93,7 +93,7 @@ const app = {
 
           $.ajax({
             type: "get",
-            url: 'https://script.google.com/macros/s/AKfycby_7z7Fukb968D0hw5nrHwtp6-2ZcgM1a7SejHZdOf5/dev',
+            url: 'https://script.google.com/macros/s/AKfycbyGi6QQhpZ4W7-mMlKCSF2sz4rb-oUwm8cr1TzrdQn-oS1CTuLdQmQ989MTQqF5-h6IyA/exec',
             data:  params,
             // 資料格式是JSON
             dataType: "JSON",
