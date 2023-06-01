@@ -1,418 +1,117 @@
 *{
-  padding: 0;
-  margin: 0 auto;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-html{
-  scroll-behavior: smooth;
+:root{
+    --bg-color: #f8f4d4;
+    --font-color:#414441;
 }
-.gotop{
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgb(47, 219, 203);
-  a{
-    position: relative;
-    top: 25%;
-    left: 10%;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-  }
-  a:hover{
-    transition-property: top;
-    top: 10%;
-    transition-duration: 0.5s;
-
-  }
-}
-#box{
-  width: 80%;
-  background-image: linear-gradient(45deg, #e6ffab 50%, #96e6a1 100%);
-  background-repeat: no-repeat;
-}
-.totals{
-  text-align: right;
-  span{
-    color: red;
-  }
-}
-header{
-  height: 80px;
-  // width: 80%;
-.header-title{
-    font-size: 3rem;
-    padding-top: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-}
-hr{
-  border: 1px solid #1c1919;
-}
-fieldset{
-  margin: 1rem;
-  #legend{
-    font-size: 2rem;
-  }
-}
-#acc-box{
-  height: 5rem;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .account{
-    color:red;
-    margin-top: 5px;
-    .acc-label{
-      color:black;
-      vertical-align: bottom;
-      font-size: 1.75rem;
-      font-weight: bold;
-
-    }
-    .acc-input{
-      font-size: 1.75rem;
-      line-height: 1.75rem;
-      height: 2.25rem;
-      flex-basis: 4;
-      border: 2px solid gray;
-      // text-align: right;
-    }
-    .acc-input[name="name"]{
-      width: 150px;
-      flex-basis: 2;
-    }
-  }
-}
-h1{
-  text-align: center;
-}
-#fliter{
-  width: 90%;
-  background-color: rgba(255,255,255,0.75);
-  border: 1.5px dotted black;
-
-  .fliterbox{
-    margin: 0.5em;
-    font-size: 1.6rem;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-direction: row;
-
-  }
-  .flibtn{
-    vertical-align: bottom;
-    padding: 2px;
-    text-align: center;
-
-    button{
-      width: 60px;
-      font-size: 1rem;
-      vertical-align: bottom;
-      &:hover{
-        color:red;
-        background-color: white;
-        border: 1px gray solid;
-        font-size: 1.25rem;
-      }
-    }
-  }
-}
-#item{
-  padding: 30px 0px;
-  border: 1px solid darkgray;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-&:nth-child(1){
-  margin-top: 30px;
-}
-h2{
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-table{
-  margin: 0;
-  width: 100%;
-  border: 1px solid black;
-
-  .th{
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 5px;
-    font-weight: 800;
-  }
-
-  td{
-    border: 1px solid gray;
-  }
-
-  .imgbox{
-    width: 70px;
-    padding:5px;
-  }
-  .booksname{
-    font-size: 1.75rem;
-    line-height: 1.75rem;
-  }
-  .bookprice{
-    width: 10%;
-    max-width: 72px;
-    font-size: 1.8rem;
-    text-align: center;
-  }
-  .booknum{
-    max-width: 80px;
-    width: 10%;
-    input{
-      max-width: 80px;
-      width: 80%;
-      height: 50px;
-      text-align: right;
-      font-size: 38px;
-      display: -webkit-flex;
-      display: -ms-flex;
-      display: flex;
-      justify-content: space-around;
-    }
-  }
-}
-.books{
-    margin-top: 30px;
-    // background-color: yellow;
-    width: 90%;
-  }
-.bookimg{
-    height: 45px;
-    width: 30px;
-    min-width: 100%;
-  }
-
-
-.submitbox{
-  margin-top: 1rem;
-  text-align: center;
-  width: 100%;
-  .submit{
-    height: 50px;
-    width: 160px;
-    line-height: 2rem;
-    font-size: 2rem;
-  }
-}
-.cart-title{
-  margin-top: 20px;
-}
-#cart{
-  border: 1px solid gray;
-  width: 90%;
-  font-size: 2rem;
-  padding: 0 5%;
-  .inputed{
-    display: -webkit-inline-flex;
-    display: -ms-inline-flex;
-    display: inline-flex;
-  }
-  .uldiv ul{
-    padding: 0 0 0 5%;
+li{
     list-style-type: none;
-  }
+}
+a{
+    color:#737773;
+}
+.max768{
+    max-width: 768px !important;
 }
 
+html{
+    font-size: 20px;
+    scroll-behavior: smooth;
+    vertical-align: baseline;
+    line-height: 1.5;
+}
+@media (max-width:640px){
+    html{
+        font-size: 16px;
+    }
+}
+body{
+    background: var(--bg-color);
+    color: var(--font-color);
+}
+
+.header{
+    width: 90%;
+    max-width: 1024px;
 }
 
 
-@media (max-width : 620px){
-  #box{
-    width: 100%;
-
-    header{
-      height: 60px;
-      // width: 80%
-    .header-title{
-        font-size: 1.8rem;
-        padding-top: 10px;
-        text-align: center;
-        font-weight: bold;
-      }
-    }
-
-    .fliterbox{
-      // margin: 0.5em;
-      font-size: 1.2rem;
-      .a{
-        display: inline-block;
-        text-align: center;
-        width: 20%;
-      }
-      .b{
-        display: -webkit-inline-flex;
-        display: -ms-inline-flex;
-        display: inline-flex;
-        width: 60%;
-    }
-  }
+.alertTxt{
+    font-size: .8rem;
+    color: rgba(255,0,0,.88);
+}
 
 
-    table{
-      margin: 0;
-      width: 100%;
-      border: 1px solid black;
-
-      .th{
-        text-align: center;
-        font-size: 1.2rem;
-        padding: 5px;
-        font-weight: 800;
-      }
-
-      td{
-        border: 1px solid gray;
-      }
-
-      .imgbox{
-        width: 70px;
-        padding:5px;
-      }
-      .booksname{
-        font-size: 1rem;
-        line-height: 1rem;
-      }
-      .bookprice{
-        width: 15%;
-        max-width: 72px;
-        font-size: 1.5rem;
-        text-align: center;
-      }
-      .booknum{
-        max-width: 80px;
-        width: 15%;
-        input{
-          max-width: 80px;
-          width: 80%;
-          height: 50px;
-          text-align: right;
-          font-size: 38px;
-          display: -webkit-flex;
-          display: -ms-flex;
-          display: flex;
-          justify-content: space-around;
-        }
-      }
-  }
-
-  #item{
-    padding: 30px 0px;
-    border: 1px solid darkgray;
-    display: -webkit-flex;
-    display: -ms-flex;
+.customInfo{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  &:nth-child(1){
-    margin-top: 30px;
-  }
-  h2{
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .books{
-      margin-top: 30px;
-      // background-color: yellow;
-      width: 100%;
-      padding: 0 5px;
-    }
+    align-items: center;
+    justify-content: space-evenly;
+    gap:2rem;
+    margin: 2rem;
+    min-height:  calc(60vh - 128px);
+    background: #fff6b524;
+}
 
-    #cart{
-      width:96%;
-      .selected{
-        font-size: 16px;
-      }
-      .uldiv ul{
+.productList tr th:not(:first-child){
+    text-align: center;
+}
+
+.productInfo{
+    th{
+        font-weight: bold;
+    }
+    td:first-child{
+        width: 70%;
+        overflow: hidden;
+    }
+    :is(tr,td):not(:first-child){
+        text-align: center;
+        min-width: 12vw;
+
+    }
+    td:last-child{
+        width: 70px;
+        input{
+            width: 100%;
+            display: block;
+            text-align: right;
+        }
+    }
+}
+
+
+.filtertype{
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    input{
+        visibility: hidden;
+    }
+    label{
+        font-size: 1.125rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    label:has(input[type="radio"]:checked){
+        color: rgb(31, 31, 233);
+        font-weight: bold;
+        font-size: 1.25rem;
+        line-height: 1;
+        text-decoration: underline;
+    }
+}
+
+.modal-content{
+    background-color: #eed;
+}
+
+.orderList {
+    ul{
+        margin: 0;
         padding: 0;
-      }
     }
-
-
 }
-
-  #acc-box{
-    padding: 8px;
-    display: block;
-    height: 300px;
-    .account{
-      margin-top: 5px;
-    }
-    .acc-label{
-        width: 20%;
-        font-size: 2rem;
-        font-weight: bold;
-
-      }
-      .acc-input{
-        width: 65%;
-        font-size: 1rem;
-        line-height: 1rem;
-        height: 2.25rem;
-        flex-basis: 4;
-        border: 2px solid gray;
-      }
-      .acc-input[name="name"]{
-        width: 65%;
-        flex-basis: 2;
-      }
-    }
-  }
-
-
-}
-
-@media (max-width : 1450px){
-  #acc-box{
-    padding: 8px;
-    display: block;
-    height: 170px;
-    text-align: center;
-    .account{
-
-      margin-top: 5px;
-    }
-    .acc-label{
-
-        width: 20%;
-        font-size: 2rem;
-        font-weight: bold;
-
-      }
-      .acc-input{
-        width: 65%;
-        font-size: 1rem;
-        line-height: 1rem;
-        height: 2.25rem;
-        flex-basis: 4;
-        border: 2px solid gray;
-      }
-      .account>.acc-input[name="name"]{
-        width: 65%;
-        flex-basis: 2;
-      }
-    }
-  }
-  // img{
-  //   height: 100px;
-  //   width: cala(100%/3);
-  //   max-width: 100%;
-  // }

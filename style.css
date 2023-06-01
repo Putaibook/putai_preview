@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #f8f4d4;
+  --font-color:#414441;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #737773;
+}
+
+.max768 {
+  max-width: 768px !important;
+}
+
+html {
+  font-size: 20px;
+  scroll-behavior: smooth;
+  vertical-align: baseline;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+body {
+  background: var(--bg-color);
+  color: var(--font-color);
+}
+
+.header {
+  width: 90%;
+  max-width: 1024px;
+}
+
+.alertTxt {
+  font-size: 0.8rem;
+  color: rgba(255, 0, 0, 0.88);
+}
+
+.customInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin: 2rem;
+  min-height: calc(60vh - 128px);
+  background: rgba(255, 246, 181, 0.1411764706);
+}
+
+.productList tr th:not(:first-child) {
+  text-align: center;
+}
+
+.productInfo th {
+  font-weight: bold;
+}
+.productInfo td:first-child {
+  width: 70%;
+  overflow: hidden;
+}
+.productInfo :is(tr, td):not(:first-child) {
+  text-align: center;
+  min-width: 12vw;
+}
+.productInfo td:last-child {
+  width: 70px;
+}
+.productInfo td:last-child input {
+  width: 100%;
+  display: block;
+  text-align: right;
+}
+
+.filtertype {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+}
+.filtertype input {
+  visibility: hidden;
+}
+.filtertype label {
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.filtertype label:has(input[type=radio]:checked) {
+  color: rgb(31, 31, 233);
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1;
+  text-decoration: underline;
+}
+
+.modal-content {
+  background-color: #eed;
+}
+
+.orderList ul {
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=style2.css.map */
