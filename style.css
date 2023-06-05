@@ -84,18 +84,26 @@ body {
 }
 
 .filtertype {
+  gap: 5px;
   display: flex;
-  gap: 10px;
   margin-left: 10px;
+}
+@media (min-width: 360px) {
+  .filtertype {
+    gap: 10px;
+  }
+  .filtertype label {
+    font-size: 1.125rem;
+  }
 }
 .filtertype input {
   visibility: hidden;
 }
 .filtertype label {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  color:#888
+  color: #888;
 }
 .filtertype label:has(input[type=radio]:checked) {
   color: rgb(31, 31, 233);
