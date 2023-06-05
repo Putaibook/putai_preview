@@ -100,7 +100,7 @@ body {
   visibility: hidden;
 }
 .filtertype label {
-  font-size: 1rem;
+  font-size: .8rem;
   font-weight: 500;
   cursor: pointer;
   color: #888;
@@ -108,7 +108,7 @@ body {
 .filtertype label:has(input[type=radio]:checked) {
   color: rgb(31, 31, 233);
   font-weight: bold;
-  font-size: 1.0675rem;
+  font-size: 1rem;
   line-height: 1;
   text-decoration: underline;
 }
