@@ -95,6 +95,7 @@ body {
   font-size: 1.125rem;
   font-weight: 500;
   cursor: pointer;
+  color:#888
 }
 .filtertype label:has(input[type=radio]:checked) {
   color: rgb(31, 31, 233);
