@@ -51,7 +51,7 @@
                         <td>{{ book.bookName }}</td>
                         <td>{{ book.price }}</td>
                         <td>{{ sellPrice(book.price)}}</td>
-                        <td><input type="number" min="0" v-model.number="book.num"></td>
+                        <td><input type="number" min="0"  max="99" inputmode="numeric" v-model.number="book.num" pattern="[0-9]*"></td>
                     </tr>
                 </template>
             </table>
@@ -82,10 +82,11 @@
                       <p v-if="!orders.length">無選擇項目</p>
                       <li v-else v-for="order in orders" class="mb-2"><span class="w-70 overflow-hidden">{{ order.bookName }}</span> * {{ order.num }} 本 {{ sellPrice(order.price) * order.num }}元</li>
                     </ul>
+                    <label class="confirmOrders" for="confirmOrders"><input type="checkbox" name="confirmOrders" id="confirmOrders" v-model="isConfirm">請確認訂單是否有誤</label>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeModal">取消</button>
-                    <button type="button" class="btn btn-primary" @click="submitOrder">提交</button>
+                    <button type="button" class="btn btn-primary btnSubmit" @click="submitOrder" :disabled="!isConfirm">提交</button>
                   </div>
                 </div>
               </div>

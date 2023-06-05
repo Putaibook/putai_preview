@@ -111,4 +111,8 @@ body {
 .orderList ul {
   margin: 0;
   padding: 0;
-}/*# sourceMappingURL=style2.css.map */
+}
+
+.btnSubmit:disabled {
+  opacity: 0.61;
+}/*# sourceMappingURL=style.css.map */
