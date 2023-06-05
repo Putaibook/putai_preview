@@ -1,5 +1,7 @@
 import books from "./item.js"
-  
+
+
+//modal
 let OrderList;
 
 
@@ -18,7 +20,8 @@ const app = {
         alertTxt: "",
         alertType: "",
 
-        orders: []
+        orders: [],
+        isConfirm: false
       }
     },
     methods:{
@@ -84,6 +87,9 @@ const app = {
           }
         },
         submitOrder(){
+
+          this.closeModal()
+
           let params = {
             name : this.custom_name,
             email : this.custom_email,
@@ -93,16 +99,18 @@ const app = {
 
           $.ajax({
             type: "get",
-            url: 'https://script.google.com/macros/s/AKfycby_7z7Fukb968D0hw5nrHwtp6-2ZcgM1a7SejHZdOf5/dev',
+            url: 'https://script.google.com/macros/s/AKfycbyGi6QQhpZ4W7-mMlKCSF2sz4rb-oUwm8cr1TzrdQn-oS1CTuLdQmQ989MTQqF5-h6IyA/exec',
             data:  params,
             // 資料格式是JSON
             dataType: "JSON",
             // 成功送出 會回頭觸發下面這塊感謝
             success: function(responseText) {
+                location.reload();
                 console.log('responseURL:')},
             error: function (err) {
               if(err.status == 200||302){
                 alert("表單已成功寄出");
+                location.reload();
               }
             }
           })
